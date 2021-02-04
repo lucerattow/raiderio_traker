@@ -1,0 +1,190 @@
+﻿<Window
+	x:Class="WpfApp1.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:WpfApp1"
+	mc:Ignorable="d"
+	Title="MainWindow"
+	WindowStartupLocation="CenterScreen" Height="600" Width="1200" MinWidth="950">
+	<Grid x:Name="Background" Background="#FF141414">
+		<StackPanel x:Name="Search" HorizontalAlignment="Left" Width="220" Background="#FF323232">
+
+			<Label x:Name="SLbName" Content="Nombre del personaje" Margin="10,10,10,0" Foreground="White" />
+			<TextBox x:Name="STbName" Text="Panciito"  Margin="10,0" Height="23" MaxLines="1" VerticalContentAlignment="Center" />
+
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Width="80">
+					<Label x:Name="SLbRegion" Content="Region" Margin="10,0" Foreground="White" />
+					<ComboBox x:Name="SCbRegion" Margin="10,0" IsEditable="True" Text="US" >
+						<ComboBoxItem>US</ComboBoxItem>
+						<ComboBoxItem>EU</ComboBoxItem>
+						<ComboBoxItem>KR</ComboBoxItem>
+						<ComboBoxItem>TW</ComboBoxItem>
+						<ComboBoxItem>CN</ComboBoxItem>
+					</ComboBox>
+				</StackPanel>
+				<StackPanel Width="140">
+					<Label x:Name="SLbReino" Content="Reino" Margin="0,0" Foreground="White" />
+					<TextBox x:Name="STbReino" Text="Quel'Thalas" Margin="0,0,10,0" Height="23" MaxLines="1" VerticalContentAlignment="Center" />
+				</StackPanel>
+			</StackPanel>
+
+			<Grid Margin="10,10,10,0" Height="23" Background="White">
+				<Button HorizontalAlignment="Left" Content="Buscar" Height="23" Width="170" BorderThickness="0" Click="Button_Click" />
+				<Button HorizontalAlignment="Right" Content="+" Background="#FFCFFF4E" BorderThickness="0" Height="23" Width="30" VerticalContentAlignment="Center"/>
+			</Grid>
+
+			<Grid Margin="10" Height="100" Background="#FF4D4D4D" >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="26" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Label Content="Personaje 1" Grid.Row="0" Foreground="White" />
+			</Grid>
+
+		</StackPanel>
+		<Grid Margin="220,0,0,0">
+			<Grid x:Name="GridSumary" Height="100" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF1E1E1E" MaxWidth="1000">
+
+				<Border Grid.Row="1" Margin="9,9" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="82">
+					<Image x:Name="ImgSumaryRender" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" />
+				</Border>
+
+				<Label x:Name="LbCharapterName" Content="Nombre" HorizontalAlignment="Left" Margin="100,5,0,0" VerticalAlignment="Top" Foreground="#FFE12828" Background="{x:Null}" FontSize="18" FontWeight="Bold"/>
+				<Label x:Name="LbCharapterGuild" Content="&lt;Guild&gt;" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Foreground="White" FontSize="11"/>
+				<Label x:Name="LbCharapterGuildRealm" Content="(SV) Realm" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+				<Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,68,0,0" >
+					<StackPanel Orientation="Horizontal">
+						<TextBlock x:Name="LbCharapterRace" Foreground="White" Text="Race " />
+						<TextBlock x:Name="LbCharapterSpec" Foreground="Red"  Text="Spec Class" />
+					</StackPanel>
+				</Label>
+
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<StackPanel Width="200">
+						<TextBox x:Name="TbMythicScore" TextAlignment="Center" VerticalContentAlignment="Center" Text="" Height="24" Background="#FF181818" BorderBrush="#FF646464" HorizontalAlignment="Center" Margin="0,20,0,0" Foreground="White" MinWidth="40" IsReadOnly="True" FontWeight="Bold" />
+						<Label Content="Best Mythic+ Score" HorizontalAlignment="Center" Margin="0,-5,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+						<Label Content="SL Season 1" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" Foreground="White"/>
+					</StackPanel>
+					<StackPanel Width="200">
+						<TextBox x:Name="TbRaidProgress" VerticalAlignment="Top" TextAlignment="Center" VerticalContentAlignment="Center" Text="" Height="24" Background="#FF181818" BorderBrush="#FF646464" HorizontalAlignment="Center" Margin="0,20,0,0" Foreground="White" MinWidth="40" IsReadOnly="True" FontWeight="Bold" />
+						<Label Content="Castle Nathria" HorizontalAlignment="Center" Margin="0,-5,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+					</StackPanel>
+				</StackPanel>
+
+			</Grid>
+			<Grid x:Name="GridRaidProgress" Height="120" Margin="10,120,10,0" VerticalAlignment="Top" Background="black" MaxWidth="1000">
+				<StackPanel>
+					<Grid Background="#FF2D2D2D" Height="30">
+						<Label Foreground="white" Content="Castle Nathria"/>
+						<Label Foreground="white" Width="200" HorizontalAlignment="Right">
+							<TextBlock Foreground="white" Margin="-5,0,0,0" Text="Progress" Width="200" TextAlignment="Center" />
+						</Label>
+					</Grid>
+					<Grid Background="#FF1E1E1E" Height="30">
+						<Label Foreground="white" Content="Mythic"/>
+						<Grid Width="200" HorizontalAlignment="Right">
+							<TextBox x:Name="TbRaidMythicProgress" TextAlignment="Center" VerticalContentAlignment="Center" Text="" Height="24" Background="#FF181818" BorderBrush="#FF646464" HorizontalAlignment="Center" Foreground="White" MinWidth="40" IsReadOnly="True" FontWeight="Bold" />
+						</Grid>
+					</Grid>
+					<Grid Background="#FF1E1E1E" Height="30">
+						<Label Foreground="white" Content="Heroic"/>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+							<Grid Width="200">
+								<TextBox x:Name="TbRaidHeroicProgress" TextAlignment="Center" VerticalContentAlignment="Center" Text="" Height="24" Background="#FF181818" BorderBrush="#FF646464" HorizontalAlignment="Center" Foreground="White" MinWidth="40" IsReadOnly="True" FontWeight="Bold" />
+							</Grid>
+						</StackPanel>
+					</Grid>
+					<Grid Background="#FF1E1E1E" Height="30">
+						<Label Foreground="white" Content="Normal"/>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+							<Grid Width="200">
+								<TextBox x:Name="TbRaidNormalProgress" TextAlignment="Center" VerticalContentAlignment="Center" Text="" Height="24" Background="#FF181818" BorderBrush="#FF646464" HorizontalAlignment="Center" Foreground="White" MinWidth="40" IsReadOnly="True" FontWeight="Bold" />
+							</Grid>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</Grid>
+			<Grid x:Name="GridMythicProgression" Margin="10,250,10,0" VerticalAlignment="Top" MaxWidth="1000" Background="#FF1E1E1E">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="300"/>
+					<ColumnDefinition Width="100"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="26" />
+				</Grid.RowDefinitions>
+
+				<Label Content="Dungeon" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label Content="Level" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label Content="Time" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label Content="Affixes" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label Content="Score" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+				<Label x:Name="LbDungeon1" Content="Dungeon 1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel1" Content="10+" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime1" Content="10:10:10" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes1" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore1" Content="150" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon2" Content="Dungeon 2" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel2" Content="10+" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime2" Content="10:10:10" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes2" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore2" Content="150" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon3" Content="Dungeon 3" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel3" Content="10+" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime3" Content="10:10:10" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes3" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore3" Content="150" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon4" Content="Dungeon 4" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel4" Content="10+" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime4" Content="10:10:10" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes4" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore4" Content="150" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon5" Content="Dungeon 5" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel5" Content="10+" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime5" Content="10:10:10" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes5" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore5" Content="150" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon6" Content="Dungeon 6" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel6" Content="10+" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime6" Content="10:10:10" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes6" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore6" Content="150" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon7" Content="Dungeon 7" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel7" Content="10+" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime7" Content="10:10:10" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes7" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore7" Content="150" Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+
+				<Label x:Name="LbDungeon8" Content="Dungeon 8" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonLevel8" Content="10+" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonTime8" Content="10:10:10" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+				<Label x:Name="LbDungeonAffixes8" Content="Affix1, Affix2, Affix3, Affix4" Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+				<Label x:Name="LbDungeonScore8" Content="150" Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+			</Grid>
+
+		</Grid>
+	</Grid>
+</Window>
